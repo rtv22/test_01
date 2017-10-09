@@ -1,0 +1,22 @@
+template <typename Iterator1, typename Iterator2>
+auto merge(Iterator1 first1, Iterator1 last1, Iterator1 first2, Iterator1 last2, Iterator2 output)->Iterator2
+{
+	for (Iterator it = first1; it != last1; it++)
+	{
+		for (Iterator it_ = first2; it_ != last2; it_++)
+		{
+			if (*it < *it_)
+			{
+				*output = *it;
+				output++;
+				it++;
+			}
+			else
+			{
+				*output = *it_;
+				output++;
+			}
+		}
+	}
+	return *output;
+}
