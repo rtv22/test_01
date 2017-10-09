@@ -1,0 +1,16 @@
+struct Node {
+	int data;
+	Node * next;
+};
+
+Node * reverse(Node * head)
+{
+	Node * reversed = NULL;
+	for (Node * node = head, * next_node; node != NULL; node = next_node)
+	{
+		next_node = node->next;
+		node->next = reversed;
+		reversed= node;
+	}
+	return reversed;
+}
